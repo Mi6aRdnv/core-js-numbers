@@ -52,35 +52,24 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
 }
 
 /**
- * Returns a last digit of a integer number.
- * The input parameter will always be greater than or equal to zero and will be in decimal notation.
- *
- * @param {number} value
- * @return {number}
- *
- * @example:
- *   100     => 0
- *    37     => 7
- *     5     => 5
- *     0     => 0
+ *   const arr = String(value).split('');
+ *   return Number(arr[arr.length - 1]);
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  let x = 0;
+  let y = value;
+  while (y % 10 !== 0) {
+    y += 1;
+    x += 1;
+  }
+  if (x === 0 || value === 0) {
+    return 0;
+  }
+  return 10 - x;
 }
 
-/**
- * Returns a number by given string representation.
- *
- * @param {string} value
- * @return {number}
- *
- * @example:
- *    '100'     => 100
- *     '37'     => 37
- * '-525.5'     => -525.5
- */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return Number(value);
 }
 
 /**
@@ -100,25 +89,9 @@ function getParallelepipedDiagonal(/* a, b, c */) {
   throw new Error('Not implemented');
 }
 
-/**
- * Returns the number rounded to specified power of 10.
- *
- * @param {number} num
- * @param {number} pow
- * @return {number}
- *
- * @example:
- *   1234, 0  => 1234
- *   1234, 1  => 1230
- *   1234, 2  => 1200
- *   1234, 3  => 1000
- *   1678, 0  => 1678
- *   1678, 1  => 1680
- *   1678, 2  => 1700
- *   1678, 3  => 2000
- */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  const power = 10 ** pow;
+  return Math.round(num / power) * power;
 }
 
 /**
