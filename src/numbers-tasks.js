@@ -6,25 +6,85 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math     *
  *                                                                                           *
  ******************************************************************************************* */
-
+/**
+ * Returns an area of a rectangle given by width and height.
+ *
+ * @param {number} width
+ * @param {number} height
+ * @return {number}
+ *
+ * @example:
+ *   5, 10 => 50
+ *   5, 5  => 25
+ */
 function getRectangleArea(width, height) {
   return Number(width * height);
 }
 
+/**
+ * Returns a circumference of circle given by radius.
+ *
+ * @param {number} radius
+ * @return {number}
+ *
+ * @example:
+ *   5    => 31.41592653589793
+ *   3.14 => 19.729201864543903
+ *   0    => 0
+ */
 function getCircleCircumference(radius) {
   return Number(radius * Math.PI * 2);
 }
 
+/**
+ * Returns an average of two given numbers.
+ *
+ * @param {number} value1
+ * @param {number} value2
+ * @return {number}
+ *
+ * @example:
+ *   5, 5  => 5
+ *  10, 0  => 5
+ *  -3, 3  => 0
+ */
 function getAverage(value1, value2) {
   return Number(value1 / 2 + value2 / 2);
 }
 
+/**
+ * Returns a distance between two points by cartesian coordinates.
+ *
+ * @param {number} x1
+ * @param {number} y1
+ * @param {number} x2
+ * @param {number} y2
+ *
+ * @return {number}
+ *
+ * @example:
+ *   (0,0) (0,1)    => 1
+ *   (0,0) (1,0)    => 1
+ *   (-5,0) (10,-10) => 18.027756377319946
+ */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
   const x = x1 - x2;
   const y = y1 - y2;
   return Math.sqrt(x ** 2 + y ** 2);
 }
 
+/**
+ * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
+ *
+ * @param {number} a
+ * @param {number} b
+ * @return {number}
+ *
+ * @example:
+ *   5*x - 10 = 0    => 2
+ *   x + 8 = 0       => -8
+ *   5*x = 0         => 0
+ */
 function getLinearEquationRoot(a, b) {
   const x = -b / a;
   return Number(x);
@@ -68,6 +128,17 @@ function getLastDigit(value) {
   return 10 - x;
 }
 
+/**
+ * Returns a number by given string representation.
+ *
+ * @param {string} value
+ * @return {number}
+ *
+ * @example:
+ *    '100'     => 100
+ *     '37'     => 37
+ * '-525.5'     => -525.5
+ */
 function parseNumberFromString(value) {
   return Number(value);
 }
@@ -85,10 +156,27 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  return Number(Math.sqrt(a ** 2 + b ** 2 + c ** 2));
 }
 
+/**
+ * Returns the number rounded to specified power of 10.
+ *
+ * @param {number} num
+ * @param {number} pow
+ * @return {number}
+ *
+ * @example:
+ *   1234, 0  => 1234
+ *   1234, 1  => 1230
+ *   1234, 2  => 1200
+ *   1234, 3  => 1000
+ *   1678, 0  => 1678
+ *   1678, 1  => 1680
+ *   1678, 2  => 1700
+ *   1678, 3  => 2000
+ */
 function roundToPowerOfTen(num, pow) {
   const power = 10 ** pow;
   return Math.round(num / power) * power;
@@ -111,10 +199,17 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n < 2) {
+    return false;
+  }
+  for (let i = 2; i < n / 2 + 1; i += 1) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
-
 /**
  * Tries to convert value to number and returns it if conversion was successful;
  * otherwise returns default value passed as a second argument.
@@ -145,8 +240,8 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  return num ** 3;
 }
 
 /**
@@ -221,8 +316,8 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -236,8 +331,8 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
@@ -250,8 +345,8 @@ function numberToStringInBase(/* number, base */) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  return number.toExponential(fractionDigits);
 }
 
 /**
