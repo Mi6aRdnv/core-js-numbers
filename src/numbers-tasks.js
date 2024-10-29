@@ -228,8 +228,8 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  return +value ? value : def;
 }
 
 /**
@@ -260,8 +260,20 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  let n1 = 0;
+  let n2 = 1;
+  for (let i = 1; i < index; i += 1) {
+    if (i % 2 === 0) {
+      n2 += n1;
+    } else {
+      n1 += n2;
+    }
+  }
+  if (index % 2 === 0) {
+    return n1;
+  }
+  return n2;
 }
 
 /**
@@ -548,8 +560,8 @@ function getIntegerPartNumber(number) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  return `${(x1 + x2 + x3).toFixed(2)}`;
 }
 
 /**
